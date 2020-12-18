@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/amelkor/Unity3d-BSR-Shooter-Trial/blob/master/LICENSE.md)
 
 # NeoFPS Terrain Surface
-#### An extension for NeoFPS allowing to detect surfaces on Unity Terrain (footsteps, shoot impacts, etc).
+#### An extension for NeoFPS allowing to detect surfaces on Unity Terrain (footsteps, shot impacts, etc).
 _Note that this is a 3rd-party extension asset from the team not affiliated with NeoFPS_.
 _This package will be deprecated once NeoFPS introduce surfaces for terrains._
 
