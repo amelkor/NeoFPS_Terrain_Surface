@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b27ce9b2854c298ada6ca469f9155c, type: 3}
+  m_Name: NeoFPS_Terrain_surface_e652d63f-1d21-4def-9700-4e4896861f52
+  m_EditorClassIdentifier: 
+  surfaces:
+  - terrainLayer: {fileID: 8574412962073106934, guid: 40117005e305bcb43873e9dc00626fa1, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 3
+  - terrainLayer: {fileID: 8574412962073106934, guid: 092ee0d751aa1de449d5edd1e93e3744, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 4
+  - terrainLayer: {fileID: 8574412962073106934, guid: 181388263a19b27479149447dcc3af36, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 2
+  - terrainLayer: {fileID: 8574412962073106934, guid: 8cf86787af0c00048a27a5f26c17c787, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 6
+  - terrainLayer: {fileID: 8574412962073106934, guid: 53a0de36626448b4faf2ce7505c84736, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 12
+  - terrainLayer: {fileID: 8574412962073106934, guid: a89876f733f0aea4ea34ad605da16202, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 9
+  - terrainLayer: {fileID: 8574412962073106934, guid: 5b79cc3f1092079418421e82522c0f82, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 1
+  - terrainLayer: {fileID: 8574412962073106934, guid: 084016b5a1944c64986d744f240b1bd6, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 14
+  - terrainLayer: {fileID: 8574412962073106934, guid: 9262899d3c37c7542a7cf0a9bd038b87, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 7
+  - terrainLayer: {fileID: 8574412962073106934, guid: 96230764bdc767645ba3ff532c9edcf8, type: 2}
+    fpsSurfaceMaterial:
+      m_Value: 5
