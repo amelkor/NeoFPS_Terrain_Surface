@@ -45,6 +45,36 @@ namespace BlackSmallRiver.Integration.NeoFPS.Core.Surfaces
             }
 
             m_CachedTerrain = new CachedTerrain(t);
+
+            if (terrainSurfaceSettings.surfaces == null)
+            {
+                Debug.LogWarning("Terrain surface is missing TerrainSurfaceSettings. Create one (see the component) or remove the component.");
+                return;
+            }
+            
+            var surfaces = terrainSurfaceSettings.surfaces;
+            m_TerrainLayersCount = surfaces.Count;
+                
+            if(m_TerrainLayersCount == 0)
+            {
+                Debug.LogWarning("Terrain surface is attached to a Terrain with no layers. Consider using NeoFPS SimpleSurface component insted or add some layers to the Terrain.");
+                return;
+            }
+                
+            m_SurfaceMap = new Dictionary<int, FpsSurfaceMaterial>(m_TerrainLayersCount);
+            var terrainData = m_CachedTerrain.terrainData;
+                
+            foreach (var surface in surfaces)
+            {
+                var index = terrainData.GetLayerIndex(surface.terrainLayer);
+                if (index == -1)
+                {
+                    Debug.LogError($"Can not find terrain layer {surface.terrainLayer.name} in the {m_CachedTerrain.terrain.name} terrain data");
+                    continue;
+                }
+
+                m_SurfaceMap.Add(index, surface.fpsSurfaceMaterial);
+            }
         }
 
         private FpsSurfaceMaterial GetFpsSurfaceMaterial(Vector3 point)
@@ -79,7 +109,6 @@ namespace BlackSmallRiver.Integration.NeoFPS.Core.Surfaces
         {
             if (!terrainSurfaceSettings)
             {
-                m_TerrainLayersCount = 0;
                 return;
             }
 
@@ -89,7 +118,7 @@ namespace BlackSmallRiver.Integration.NeoFPS.Core.Surfaces
         // ReSharper disable once CognitiveComplexity
         private void SyncTerrainLayersInternal()
         {
-            m_TerrainLayersCount = terrainSurfaceSettings.surfaces?.Count ?? 0;
+            var terrainLayersCount = terrainSurfaceSettings.surfaces?.Count ?? 0;
 
             if (!TryGetComponent<Terrain>(out var t))
             {
@@ -104,7 +133,7 @@ namespace BlackSmallRiver.Integration.NeoFPS.Core.Surfaces
                 terrainSurfaceSettings.surfaces = new List<TerrainLayerSurface>(terrainData.terrainLayers.Length);
             
             var surfaces = terrainSurfaceSettings.surfaces;
-            var difference = m_TerrainLayersCount - terrainData.terrainLayers.Length;
+            var difference = terrainLayersCount - terrainData.terrainLayers.Length;
 
             // remove orphan layers which have been removed from the terrain
             if (difference > 0)
@@ -149,21 +178,6 @@ namespace BlackSmallRiver.Integration.NeoFPS.Core.Surfaces
 
                     Debug.Log($"New TerrainLayerSurface added: {surface.ToString()}");
                 }
-            }
-
-            m_TerrainLayersCount = surfaces.Count;
-            m_SurfaceMap = new Dictionary<int, FpsSurfaceMaterial>(m_TerrainLayersCount);
-
-            foreach (var surface in surfaces)
-            {
-                var index = terrainData.GetLayerIndex(surface.terrainLayer);
-                if (index == -1)
-                {
-                    Debug.LogError($"Can not find terrain layer {surface.terrainLayer.name} in the {t.name} terrain data");
-                    continue;
-                }
-
-                m_SurfaceMap.Add(index, surface.fpsSurfaceMaterial);
             }
         }
 

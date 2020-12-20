@@ -1,4 +1,6 @@
 
+![Logo](Assets/BlackSmallRiver/Integration/NeoFPS/Core/Surfaces/Editor/Gizmos/bsr_terrain_icon.png)
+
 [![Twitter Follow](https://img.shields.io/twitter/follow/AlekseyMelkor?color=blue&label=Follow%20on%20Twitter&logo=%20&logoColor=%20&style=flat-square)](https://twitter.com/AlekseyMelkor)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/amelkor/Unity3d-BSR-Shooter-Trial/blob/master/LICENSE.md)
 
